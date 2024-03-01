@@ -10,13 +10,7 @@ export default defineConfig(({ mode }) => {
   return {
     root: __dirname,
     publicDir: "src/public",
-    base: "/",
-    //logLevel: "error",
-    ssr: {
-      // noExternal: [
-      //   '**'
-      // ]
-    },
+    base: "/", 
     build: {
       outDir: "../dist/./main/client",
       reportCompressedSize: true,
@@ -31,20 +25,17 @@ export default defineConfig(({ mode }) => {
       open: true
     },
     plugins: [analog({
-       ssr: false,
-       //ssrBuildDir: "../dist/./main/client",
+       ssr: false, 
        nitro: {
         logLevel: 5
-       },
-       //static: true,
+       }, 
        prerender: {
 
         postRenderingHooks: [
           async (route: PrerenderRoute) => console.log(route),
         ],
         routes: [
-          '/',
-          //'*'
+          '/', 
         ],
         sitemap: {
           host: "localhost"
