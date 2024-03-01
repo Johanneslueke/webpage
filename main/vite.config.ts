@@ -29,7 +29,7 @@ export default defineConfig(({ mode }) => {
       open: true
     },
     plugins: [analog({
-       //ssr: false,
+       ssr: false,
        //static: true,
        prerender: {
         postRenderingHooks: [
