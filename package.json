@@ -4,8 +4,9 @@
   "license": "MIT",
   "scripts": {},
   "private": true,
-  "dependencies": {},
   "devDependencies": {
+    "@analogjs/platform": "^0.2.41",
+    "@nx/angular": "^18.0.6",
     "@nx/js": "16.9.1",
     "@nx/workspace": "16.9.1",
     "nx": "16.9.1"
