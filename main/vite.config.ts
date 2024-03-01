@@ -13,7 +13,9 @@ export default defineConfig(({ mode }) => {
     base: "/",
     //logLevel: "error",
     ssr: {
-
+      // noExternal: [
+      //   '**'
+      // ]
     },
     build: {
       outDir: "../dist/./main/client",
@@ -30,8 +32,13 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [analog({
        ssr: false,
+       //ssrBuildDir: "../dist/./main/client",
+       nitro: {
+        logLevel: 5
+       },
        //static: true,
        prerender: {
+
         postRenderingHooks: [
           async (route: PrerenderRoute) => console.log(route),
         ],
