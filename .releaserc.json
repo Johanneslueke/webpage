@@ -17,5 +17,5 @@
             }
         ],
         "@semantic-release/git"
-      ]
-  }
+    ]
+}
