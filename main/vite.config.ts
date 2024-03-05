@@ -37,7 +37,7 @@ export default defineConfig(({ mode }) => {
           async (route: PrerenderRoute) => console.log(route),
         ],
         routes: [
-          '/', 
+         // '/', 
         ],
         sitemap: {
           host: "localhost"
