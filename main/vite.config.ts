@@ -26,7 +26,9 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [analog({
        ssr: false, 
+      
        nitro: {
+        preset: 'vercel',
         logLevel: 5
        }, 
        prerender: {
