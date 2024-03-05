@@ -1,6 +1,6 @@
 /// <reference types="vitest" />
 
-import analog from "@analogjs/platform";
+import analog, { PrerenderContentFile } from "@analogjs/platform";
 import { defineConfig, Plugin, splitVendorChunkPlugin } from "vite";
 import { nxViteTsPaths } from "@nx/vite/plugins/nx-tsconfig-paths.plugin";
 import { PrerenderRoute } from 'nitropack';
@@ -10,6 +10,7 @@ export default defineConfig(({ mode }) => {
   return {
     root: __dirname,
     publicDir: "src/public",
+
     base: "/", 
     build: {
       outDir: "../dist/./main/client",
@@ -24,10 +25,12 @@ export default defineConfig(({ mode }) => {
       host: 'localhost',
       open: true
     },
-    plugins: [analog({
-       ssr: false, 
+    plugins: [analog({  
+      //  ssr: false, 
+      //  static: true,
        nitro: {
-        logLevel: 5
+        logLevel: 5,
+        preset: "vercel"
        }, 
        prerender: {
 
@@ -36,6 +39,18 @@ export default defineConfig(({ mode }) => {
         ],
         routes: [
           '/', 
+          {
+            contentDir: 'src/content/blog',
+            transform: (file: PrerenderContentFile) => {
+              // do not include files marked as draft in frontmatter
+              if (file.attributes["draft"]) {
+                return false;
+              }
+              // use the slug from frontmatter if defined, otherwise use the files basename
+              const slug = file.attributes["slug"] || file.name;
+              return `/blog/${slug}`;
+            }
+          }
         ],
         sitemap: {
           host: "localhost"

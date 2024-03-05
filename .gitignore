@@ -9,6 +9,7 @@ tmp
 node_modules
 
 .nx
+.vercel
 
 # IDEs and editors
 /.idea
