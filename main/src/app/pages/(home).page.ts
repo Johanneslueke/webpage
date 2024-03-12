@@ -3,7 +3,7 @@ import { Component } from "@angular/core";
 import { AnalogWelcomeComponent } from "./analog-welcome.component";
 import { AsyncPipe, NgFor } from "@angular/common";
 import { RouterOutlet, RouterLink } from "@angular/router";
-import { MarkdownComponent, MarkdownRouteComponent, injectContentFiles } from "@analogjs/content";
+import { MarkdownComponent, MarkdownRouteComponent, injectContent, injectContentFiles } from "@analogjs/content";
 
 export interface PostAttributes {
   title: string;
@@ -35,4 +35,5 @@ export default class HomeComponent {
   readonly posts = injectContentFiles<PostAttributes>((contentFile) =>
   contentFile.filename.includes('/src/content/blog/')
 );
+readonly post$ = injectContent<PostAttributes>();
 }
