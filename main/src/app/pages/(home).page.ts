@@ -29,6 +29,7 @@ export interface PostAttributes {
       <h1>{{ post.attributes.title }}</h1>
       <analog-markdown [content]="post.content"></analog-markdown>
     </ng-container>
+    <analog-markdown-route></analog-markdown-route>
   `,
 })
 export default class HomeComponent {
