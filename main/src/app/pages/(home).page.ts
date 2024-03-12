@@ -1,9 +1,9 @@
 import { Component } from "@angular/core";
 
 import { AnalogWelcomeComponent } from "./analog-welcome.component";
-import { NgFor } from "@angular/common";
+import { AsyncPipe, NgFor } from "@angular/common";
 import { RouterOutlet, RouterLink } from "@angular/router";
-import { injectContentFiles } from "@analogjs/content";
+import { MarkdownComponent, MarkdownRouteComponent, injectContentFiles } from "@analogjs/content";
 
 export interface PostAttributes {
   title: string;
@@ -16,7 +16,7 @@ export interface PostAttributes {
 @Component({
   selector: "main-home",
   standalone: true,
-  imports: [RouterOutlet, RouterLink, NgFor], 
+  imports: [RouterOutlet, RouterLink, NgFor,MarkdownComponent,MarkdownRouteComponent, AsyncPipe], 
   template: `
     <ul>
       <li *ngFor="let post of posts">
@@ -25,7 +25,10 @@ export interface PostAttributes {
         }}</a>
       </li>
     </ul>
-  
+    <ng-container *ngIf="post$ | async as post">
+      <h1>{{ post.attributes.title }}</h1>
+      <analog-markdown [content]="post.content"></analog-markdown>
+    </ng-container>
   `,
 })
 export default class HomeComponent {
