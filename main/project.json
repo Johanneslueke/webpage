@@ -18,7 +18,8 @@
         "outputPath": "dist/main/client",
         "tsConfig": "main/tsconfig.app.json",
         "serviceWorker": true,
-        "ngswConfigPath": "main/ngsw-config.json"
+        "ngswConfigPath": "main/ngsw-config.json",
+        "manifest":true
       },
       "defaultConfiguration": "production",
       "configurations": {
