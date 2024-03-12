@@ -19,7 +19,7 @@ function swBuildPlugin(): Plugin {
         return;
       }
       console.log('Building service worker');
-      await augmentAppWithServiceWorker('.', process.cwd(), path.join(process.cwd(), 'dist/client'), '/');
+      await augmentAppWithServiceWorker('./main', process.cwd(), path.join(process.cwd(), 'dist/main/client'), '/');
     }
   }
 }
