@@ -1,9 +1,28 @@
 /// <reference types="vitest" />
 
 import analog, { PrerenderContentFile } from "@analogjs/platform";
-import { defineConfig, Plugin, splitVendorChunkPlugin } from "vite";
+import { defineConfig, Plugin, splitVendorChunkPlugin, UserConfig } from "vite";
 import { nxViteTsPaths } from "@nx/vite/plugins/nx-tsconfig-paths.plugin";
 import { PrerenderRoute } from 'nitropack';
+import { augmentAppWithServiceWorker } from '@angular-devkit/build-angular/src/utils/service-worker';
+import * as path from 'path';
+
+function swBuildPlugin(): Plugin {
+  let config: UserConfig;
+  return {
+    name: 'analog-sw',
+    config(_config) {
+      config = _config;
+    },
+    async closeBundle() {
+      if (config.build?.ssr) {
+        return;
+      }
+      console.log('Building service worker');
+      await augmentAppWithServiceWorker('.', process.cwd(), path.join(process.cwd(), 'dist/client'), '/');
+    }
+  }
+}
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -25,7 +44,8 @@ export default defineConfig(({ mode }) => {
       host: 'localhost',
       open: true
     },
-    plugins: [analog({  
+    plugins: [
+      analog({  
       //  ssr: false, 
       //  static: true,
        nitro: {
@@ -56,7 +76,11 @@ export default defineConfig(({ mode }) => {
           host: "localhost"
         }
        }
-       }), nxViteTsPaths(), splitVendorChunkPlugin()],
+       }),
+        nxViteTsPaths(), 
+        splitVendorChunkPlugin(),
+        swBuildPlugin()
+      ],
     test: {
       globals: true,
       environment: "jsdom",
