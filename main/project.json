@@ -14,7 +14,7 @@
       ],
       "options": {
         "main": "main/src/main.ts",
-        "configFile": "main/vite.config.ts",
+        "configFile": "main/vite.config.mts",
         "outputPath": "dist/main/client",
         "tsConfig": "main/tsconfig.app.json"
       },
