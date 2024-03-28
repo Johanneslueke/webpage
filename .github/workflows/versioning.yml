@@ -20,5 +20,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci 
+    - run: |
+        npm install -D @semantic-release/commit-analyzer
+        npm install -D @semantic-release/release-notes-generator
+        npm install -D @semantic-release/github
+        npm install -D @semantic-release/git
     - run: npx semantic-release
