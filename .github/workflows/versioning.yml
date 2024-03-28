@@ -1,36 +1,33 @@
-name: Release
+name: Semantic Release Version Evaluator
+
 on:
   push:
-    branches:
-      - main
-
-permissions:
-  contents: read # for checkout
-
+    branches: [ main, alpha ]
+  pull_request:
+    branches: [ main, alpha ]
+env:
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GITHUB_TOKEN:  ${{ secrets.GITHUB_TOKEN }}
 jobs:
-  release:
-    name: Release
+  build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write # to be able to publish a GitHub release
-      issues: write # to be able to comment on released issues
-      pull-requests: write # to be able to comment on released pull requests
-      id-token: write # to enable use of OIDC for npm provenance
+    strategy:
+      matrix:
+        node-version: [20.x]
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "lts/*"
-      - name: Install dependencies
-        run: npm clean-install
-      - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
-        run: npm audit signatures
-      - name: Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: |
+        npm install -D @semantic-release/commit-analyzer
+        npm install -D @semantic-release/release-notes-generator
+        npm install -D @semantic-release/github
+        npm install -D @semantic-release/git
+        npm install -D @semantic-release/changelog
+    - run: | 
+        ls -l
+        mv .releaserc .releaserc.json
+    - run: npx semantic-release --extends ./.releaserc.json

@@ -1,6 +1,6 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["**/*.ts"],
+  "include": ["**/*.ts", "vite.config.mts"],
   "compilerOptions": {
     "types": ["node", "vitest/globals"]
   }

@@ -1,6 +1,6 @@
 /// <reference types="vitest" />
 
-import analog, { PrerenderContentFile } from "@analogjs/platform";
+import  analog, { PrerenderContentFile } from "@analogjs/platform";
 import { defineConfig, Plugin, splitVendorChunkPlugin, UserConfig } from "vite";
 import { nxViteTsPaths } from "@nx/vite/plugins/nx-tsconfig-paths.plugin";
 import { PrerenderRoute } from 'nitropack';
