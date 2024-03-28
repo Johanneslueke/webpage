@@ -23,7 +23,24 @@ jobs:
         uses: cycjimmy/semantic-release-action@v4
         with:
           semantic_version: 23.0.6
+          branches: |
+            [
+              '+([0-9])?(.{+([0-9]),x}).x',
+              'master',
+              'next',
+              'next-major',
+              {
+                name: 'beta',
+                prerelease: true
+              },
+              {
+                name: 'alpha',
+                prerelease: true
+              }
+            ]
           extra_plugins: |
+            @semantic-release/commit-analyzer,
+            @semantic-release/release-notes-generator,
             @semantic-release/changelog@6.0.0
             @semantic-release/git
         env:
