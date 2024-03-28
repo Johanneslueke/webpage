@@ -3,7 +3,7 @@ import { Component } from "@angular/core";
 @Component({
   selector: "main-analog-welcome",
   standalone: true,
-  style: `
+  styles: [`
   .wrapper {
   width: 600px;
   max-width: 100%;
@@ -15,7 +15,7 @@ import { Component } from "@angular/core";
   width: 100%;
   height: auto;
 }
-`,
+`],
   host: {
     class:
       "flex min-h-screen flex-col text-zinc-900 bg-zinc-50 px-4 pt-8 pb-32",
