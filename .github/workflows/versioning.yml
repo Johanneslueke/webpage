@@ -26,6 +26,7 @@ jobs:
         npm install -D @semantic-release/release-notes-generator
         npm install -D @semantic-release/github
         npm install -D @semantic-release/git
+        npm install -D @semantic-release/changelog
     - run: | 
         ls -l
     - run: npx semantic-release
