@@ -28,5 +28,4 @@ jobs:
         npm install -D @semantic-release/git
     - run: | 
         ls -l
-        cat .releaserc.json
     - run: npx semantic-release
