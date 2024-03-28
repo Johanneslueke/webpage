@@ -29,4 +29,4 @@ jobs:
         npm install -D @semantic-release/changelog
     - run: | 
         ls -l
-    - run: npx semantic-release --extends ./releaserc
+    - run: npx semantic-release --extends ./.releaserc
