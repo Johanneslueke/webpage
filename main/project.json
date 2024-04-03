@@ -3,6 +3,7 @@
   "$schema": "../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "sourceRoot": "./main/src",
+  
   "targets": {
     "build": {
       "executor": "@analogjs/platform:vite",
@@ -16,7 +17,10 @@
         "main": "main/src/main.ts",
         "configFile": "main/vite.config.mts",
         "outputPath": "dist/main/client",
-        "tsConfig": "main/tsconfig.app.json"
+        "tsConfig": "main/tsconfig.app.json",
+        "serviceWorker": true,
+        "ngswConfigPath": "main/ngsw-config.json",
+        "manifest":true
       },
       "defaultConfiguration": "production",
       "configurations": {
@@ -55,7 +59,9 @@
     },
     "test": {
       "executor": "@analogjs/platform:vitest",
-      "outputs": ["{projectRoot}/coverage"]
+      "outputs": [
+        "{projectRoot}/coverage"
+      ]
     }
   },
   "tags": []

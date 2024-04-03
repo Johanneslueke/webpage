@@ -1,0 +1,9 @@
+{
+  "name": "main-layout",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/main/layout/src",
+  "prefix": "projects",
+  "tags": [],
+  "projectType": "library",
+  "targets": {}
+}
