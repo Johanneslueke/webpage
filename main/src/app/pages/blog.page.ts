@@ -1,6 +1,5 @@
 import { Component } from "@angular/core";
-
-import { AnalogWelcomeComponent } from "./analog-welcome.component";
+ 
 import { AsyncPipe, NgFor, NgIf } from "@angular/common";
 import { RouterOutlet, RouterLink } from "@angular/router";
 import { MarkdownComponent, MarkdownRouteComponent, injectContent, injectContentFiles } from "@analogjs/content";
@@ -14,7 +13,7 @@ export interface PostAttributes {
 
 
 @Component({
-  //selector: "main-blog",
+  selector: "main-blog",
   standalone: true,
   imports: [RouterOutlet, RouterLink, NgFor,NgIf,MarkdownComponent,MarkdownRouteComponent, AsyncPipe], 
   template: `
@@ -34,6 +33,6 @@ export default class BlogComponent {
 );
 readonly post$ = injectContent<PostAttributes>({
   subdirectory: 'blog',
-  param: ""
+  param: "slug"
 });
 }

@@ -1,9 +1,9 @@
 import { Component, inject } from "@angular/core";
-
-import { AnalogWelcomeComponent } from "./analog-welcome.component";
+ 
 import { AsyncPipe, NgFor, NgIf } from "@angular/common";
 import { RouterOutlet, RouterLink, ActivatedRoute } from "@angular/router";
 import { MarkdownComponent, MarkdownRouteComponent, injectContent, injectContentFiles } from "@analogjs/content";
+import { combineLatest, map, switchAll } from "rxjs";
 
 export interface PostAttributes {
   title: string;
@@ -26,8 +26,9 @@ export interface PostAttributes {
 })
 export default class BlogPostComponent {
     private readonly route = inject(ActivatedRoute);
-    readonly post$ = injectContent<PostAttributes>({
-    subdirectory: 'blog',
-    param: ""
-    });
+    readonly slug$ = this.route.paramMap.pipe(
+        map((params) => params.get('slug'))
+      );
+    readonly post$ =  injectContent<PostAttributes>()
+
 }

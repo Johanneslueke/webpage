@@ -49,8 +49,8 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [
       analog({  
-      //  ssr: false, 
-      //  static: true,
+       ssr: false, 
+        static: true,
        nitro: {
         logLevel: 5,
         preset: "vercel"
@@ -61,22 +61,26 @@ export default defineConfig(({ mode }) => {
           async (route: PrerenderRoute) => console.log(route),
         ],
         routes: [
-          '/', 
-          {
-            contentDir: 'src/content/blog',
-            transform: (file: PrerenderContentFile) => {
-              // do not include files marked as draft in frontmatter
-              if (file.attributes["draft"]) {
-                return false;
-              }
-              // use the slug from frontmatter if defined, otherwise use the files basename
-              const slug = file.attributes["slug"] || file.name;
-              return `/blog/${slug}`;
-            }
-          }
+          '/',
+          '/about',
+          '/projects',
+          '/blog',
+          // {
+          //   contentDir: 'src/content',
+          //   transform: (file: PrerenderContentFile) => {
+          //     // do not include files marked as draft in frontmatter
+          //     if (file.attributes["draft"]) {
+          //       return false;
+          //     }
+          //     // use the slug from frontmatter if defined, otherwise use the files basename
+          //     const slug = file.attributes["slug"] || file.name;
+          //     return `/blog/${slug}`;
+          //   }
+          // }
         ],
         sitemap: {
-          host: "localhost"
+          host: "localhost",
+          
         }
        }
        }),
