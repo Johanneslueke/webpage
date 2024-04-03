@@ -1,0 +1,6 @@
+\newcommand{\ABinclude}{no}
+\newcommand{\symnzinclude}{no}
+\newcommand{\symnzmninclude}{no}
+\newcommand{\GZinclude}{no}
+\newcommand{\RatZinclude}{no}
+\newcommand{\RZinclude}{no}

@@ -44,3 +44,12 @@ Thumbs.db
 .angular
 
 *.pdf
+*.log
+*.aux
+*.bcf
+*.lot
+*.out
+*.sub
+*.sym
+*.lof
+*.toc
