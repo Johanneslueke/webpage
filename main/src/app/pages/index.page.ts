@@ -21,6 +21,6 @@ export interface PostAttributes {
     <router-outlet></router-outlet>
   `,
 })
-export default class HomeComponent {
+export default class IndexComponent {
  
 }
