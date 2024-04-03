@@ -14,13 +14,26 @@ export interface PostAttributes {
 
 
 @Component({
-  //selector: "main-home",
+  //selector: "main-blog",
   standalone: true,
   imports: [RouterOutlet, RouterLink, NgFor,NgIf,MarkdownComponent,MarkdownRouteComponent, AsyncPipe], 
   template: `
+    <ul>
+      <li *ngFor="let post of posts">
+        <a [routerLink]="['/blog', post.slug]">{{
+          post.attributes.title
+        }}</a>
+      </li>
+    </ul>
     <router-outlet></router-outlet>
   `,
 })
-export default class HomeComponent {
- 
+export default class BlogComponent {
+  readonly posts = injectContentFiles<PostAttributes>((contentFile) =>
+  contentFile.filename.includes('/src/content/blog/')
+);
+readonly post$ = injectContent<PostAttributes>({
+  subdirectory: 'blog',
+  param: ""
+});
 }

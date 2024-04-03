@@ -42,7 +42,10 @@ export default defineConfig(({ mode }) => {
     server: {
       port: 4200,
       host: 'localhost',
-      open: true
+      open: true,
+      fs: {
+        allow: ['.'],
+      },
     },
     plugins: [
       analog({  
