@@ -4,13 +4,35 @@ import { SwUpdate, VersionEvent,VersionDetectedEvent , VersionInstallationFailed
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { tap } from "rxjs";
 
+import {MainLayoutComponent, MainLayoutService } from '@projects/main-layout'
 @Component({
   selector: "main-root",
   standalone: true,
-  imports: [RouterOutlet],
-  template: ` <router-outlet></router-outlet> `,
+  imports: [MainLayoutComponent,RouterOutlet],
+  styles: [
+    `
+    :host {
+        display: flex;
+        flex-direction: column;
+      }
+    `
+  ],
+  template: ` 
+  <div
+  [attr.data-theme]="selectedTheme()"
+  class="min-h-screen bg-base-100 flex justify-between flex-col"
+>
+  <projects-main-layout></projects-main-layout>
+  <router-outlet></router-outlet> 
+</div>
+ 
+  
+  `,
 })
 export class AppComponent {
+
+  themeService = inject(MainLayoutService);
+  selectedTheme = this.themeService.selectedTheme;
 
   swUpdate = inject(SwUpdate);
   destroy$ = inject(DestroyRef);
