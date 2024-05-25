@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/Johanneslueke/webpage/compare/v1.3.0...v1.3.1) (2024-05-25)
+
+
+### Bug Fixes
+
+* enable static ([077ef0f](https://github.com/Johanneslueke/webpage/commit/077ef0f1a279d96a484e0fbb902cde1d7a2b5571))
+
 # [1.3.0](https://github.com/Johanneslueke/webpage/compare/v1.2.1...v1.3.0) (2024-04-03)
 
 
