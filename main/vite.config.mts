@@ -37,6 +37,7 @@ export default defineConfig(({ mode }) => {
       commonjsOptions: { transformMixedEsModules: true },
       target: ["es2020"],
       copyPublicDir: true,
+      ssrEmitAssets: true,
       
     },
     server: {
@@ -50,13 +51,15 @@ export default defineConfig(({ mode }) => {
     plugins: [
       analog({  
        ssr: false, 
-        static: true,
+      static: false,
        nitro: {
         logLevel: 5,
-        preset: "vercel"
-       }, 
-       prerender: {
+        preset: "vercel",
 
+       }, 
+
+       prerender: {
+        discover: true,
         postRenderingHooks: [
           async (route: PrerenderRoute) => console.log(route),
         ],
