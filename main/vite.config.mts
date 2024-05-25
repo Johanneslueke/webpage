@@ -51,7 +51,7 @@ export default defineConfig(({ mode }) => {
     plugins: [
       analog({  
        ssr: false, 
-      static: false,
+      static: true,
        nitro: {
         logLevel: 5,
         preset: "vercel",
