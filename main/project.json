@@ -3,7 +3,6 @@
   "$schema": "../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "sourceRoot": "./main/src",
-  
   "targets": {
     "build": {
       "executor": "@analogjs/platform:vite",
@@ -20,7 +19,13 @@
         "tsConfig": "main/tsconfig.app.json",
         "serviceWorker": true,
         "ngswConfigPath": "main/ngsw-config.json",
-        "manifest":true
+        "manifest":true,
+        
+        "assets": [
+          "main/src/assets/**",
+          "main/src/assets/icons/**/*.png",
+          "main/src/assets/icons/icon-72x72.png"
+        ]
       },
       "defaultConfiguration": "production",
       "configurations": {
@@ -30,6 +35,7 @@
         "production": {
           "sourcemap": false,
           "mode": "production"
+        
         }
       }
     },

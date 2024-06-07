@@ -44,7 +44,7 @@ export interface PostAttributes {
               <div class="card-actions justify-end">
                 <div class="relative mt-8 flex items-center gap-x-4">
                   <img
-                    src="./assets/icons/icon-72x72.png"
+                    src="icons/icon-72x72.png"
                     alt=""
                     class="object-cover h-12 w-12 rounded-full"
                   />

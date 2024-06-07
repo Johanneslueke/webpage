@@ -28,8 +28,7 @@ function swBuildPlugin(): Plugin {
 export default defineConfig(({ mode }) => {
   return {
     root: __dirname,
-    publicDir: "src/public",
-
+    publicDir: "src/assets",
     base: "/", 
     build: {
       outDir: "../dist/./main/client",
@@ -37,7 +36,14 @@ export default defineConfig(({ mode }) => {
       commonjsOptions: { transformMixedEsModules: true },
       target: ["es2020"],
       copyPublicDir: true,
-      ssrEmitAssets: true,
+    
+      ssrEmitAssets: true, 
+      ssrManifest: true,
+      assetsInlineLimit: 0,
+      manifest: true,
+      rollupOptions: {
+        treeshake: true
+      },
       
     },
     server: {
@@ -50,37 +56,38 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [
       analog({  
-       ssr: false, 
-      static: true,
+        ssr: false, 
+        static: true,
        nitro: {
         logLevel: 5,
         preset: "vercel",
-
+        
+        
        }, 
 
        prerender: {
-        discover: true,
+        discover: false,
         postRenderingHooks: [
           async (route: PrerenderRoute) => console.log(route),
         ],
-        routes: [
-          '/',
-          '/about',
-          '/projects',
-          '/blog',
-          // {
-          //   contentDir: 'src/content',
-          //   transform: (file: PrerenderContentFile) => {
-          //     // do not include files marked as draft in frontmatter
-          //     if (file.attributes["draft"]) {
-          //       return false;
-          //     }
-          //     // use the slug from frontmatter if defined, otherwise use the files basename
-          //     const slug = file.attributes["slug"] || file.name;
-          //     return `/blog/${slug}`;
-          //   }
-          // }
-        ],
+        // routes: [
+        //   '/',
+        //   '/about',
+        //   '/projects',
+        //   '/blog',
+        //   // {
+        //   //   contentDir: 'src/content',
+        //   //   transform: (file: PrerenderContentFile) => {
+        //   //     // do not include files marked as draft in frontmatter
+        //   //     if (file.attributes["draft"]) {
+        //   //       return false;
+        //   //     }
+        //   //     // use the slug from frontmatter if defined, otherwise use the files basename
+        //   //     const slug = file.attributes["slug"] || file.name;
+        //   //     return `/blog/${slug}`;
+        //   //   }
+        //   // }
+        // ],
         sitemap: {
           host: "localhost",
           
