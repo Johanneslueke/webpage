@@ -23,7 +23,7 @@ export interface PostAttributes {
             From the blog
           </h2>
           <p class="mt-2 text-lg leading-8">
-            Learn how to grow your business with our expert advice.
+           Thougths and Ideas
           </p>
         </div>
         <div
