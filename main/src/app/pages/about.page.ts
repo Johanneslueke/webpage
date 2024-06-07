@@ -19,16 +19,23 @@ export interface PostAttributes {
   imports: [ ], 
   template: `
    <div class="hero">
-    <div class="hero-content">
+    <div class="hero-content text-center max-w-md flex flex-col items-center">
       <h1> Wer bin Ich? </h1>
 
-      <p>
-      Mein name lautet Johanens Lüke. Ich komme aus gebürtig aus dem wunderschönen Ruhrgebiet und hab mich 
+      <p class="py-6">
+      Mein name lautet Johanens Lüke. Ich komme gebürtig aus dem wunderschönen Ruhrgebiet und hab mich 
       aktuell in Franken niedergelassen.
       </p>
     </div>
    </div>
   `,
+  styles: [
+    `
+      :host {
+        display: flex;
+        flex: 1;
+      }
+    `,]
 })
 export default class IndexComponent {
  
