@@ -23,7 +23,7 @@ export interface PostAttributes {
       <h1> Wer bin Ich? </h1>
 
       <p class="py-6">
-      Mein name lautet Johanens Lüke. Ich komme gebürtig aus dem wunderschönen Ruhrgebiet und hab mich 
+      Mein name lautet Johannes Lüke. Ich komme gebürtig aus dem wunderschönen Ruhrgebiet und hab mich 
       aktuell in Franken niedergelassen.
       </p>
     </div>
