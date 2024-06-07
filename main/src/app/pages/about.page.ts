@@ -18,7 +18,12 @@ export interface PostAttributes {
   standalone: true,
   imports: [ ], 
   template: `
-    <h1> ABOUT </h1>
+    <h1> Wer bin Ich? </h1>
+
+    <p>
+    Mein name lautet Johanens Lüke. Ich komme aus gebürtig aus dem wunderschönen Ruhrgebiet und hab mich 
+    aktuell in Franken niedergelassen.
+    </p>
   `,
 })
 export default class IndexComponent {
