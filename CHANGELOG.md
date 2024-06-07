@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/Johanneslueke/webpage/compare/v1.3.1...v1.3.2) (2024-06-07)
+
+
+### Bug Fixes
+
+* asset link ([6007e5c](https://github.com/Johanneslueke/webpage/commit/6007e5c001ad710ddd9ed5330cf26c265726f682))
+
 ## [1.3.1](https://github.com/Johanneslueke/webpage/compare/v1.3.0...v1.3.1) (2024-05-25)
 
 
