@@ -20,15 +20,12 @@ export interface PostAttributes {
     <div class="hero">
       <div class="hero-content text-center">
         <div class="max-w-md flex flex-col items-center">
-          <h1 class="md:text-4xl text-2xl font-bold">
-            Herzlich Willkommen :P
-          </h1>
           <figure>
             <img src="/analog.svg" alt="AnalogJs logo" />
-            <figcaption>AnalogJs: The Meta Framework</figcaption>
+            <figcaption>Hier findest du Information Üüber meine Person</figcaption>
           </figure>
           <p class="py-6">
-           Herzlich Willkommen zu meiner Webseite :D 
+          Herzlich Willkommen auf meiner Webseite
           </p>
           <button class="btn items-center bg-base-300">
             <a routerLink="/blog">Go to Blog Posts</a>
