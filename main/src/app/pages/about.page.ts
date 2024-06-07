@@ -18,12 +18,16 @@ export interface PostAttributes {
   standalone: true,
   imports: [ ], 
   template: `
-    <h1> Wer bin Ich? </h1>
+   <div class="hero">
+    <div class="hero-content">
+      <h1> Wer bin Ich? </h1>
 
-    <p>
-    Mein name lautet Johanens Lüke. Ich komme aus gebürtig aus dem wunderschönen Ruhrgebiet und hab mich 
-    aktuell in Franken niedergelassen.
-    </p>
+      <p>
+      Mein name lautet Johanens Lüke. Ich komme aus gebürtig aus dem wunderschönen Ruhrgebiet und hab mich 
+      aktuell in Franken niedergelassen.
+      </p>
+    </div>
+   </div>
   `,
 })
 export default class IndexComponent {
