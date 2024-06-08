@@ -11,7 +11,7 @@ export interface PostAttributes {
   description: string;
   coverImage: string;
   coverAsBackground: boolean;
-  lang: 'de'|'en'
+  lang: 'de'|'en' | '?'
   date?: Date;
   attributes?: Record<string,unknown>
 }

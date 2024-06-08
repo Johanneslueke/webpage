@@ -1,4 +1,4 @@
-<div class="card w-96 bg-base-200 shadow hover:shadow-xl image-full" [ngClass]="{
+<div class="card  bg-base-200 shadow hover:shadow-xl image-full" style="width: 34rem;" [ngClass]="{
     'image-full': post().attributes?.coverAsBackground ?? false
 }" [routerLink]="['/blog', 'posts', post().slug]" >
     <figure *ngIf="post().attributes?.coverImage">
@@ -6,16 +6,12 @@
     </figure>
   
     <div class="card-body">
-        <div class="card-title justify-end">
-            <span class="relative badge badge-xs">{{ post()?.attributes?.lang }}</span>
-        </div>
-        <a  class="hover:underline flex flex-col">
+        <div class="card-title justify-between">
             <h2 class="card-title">{{ post()?.attributes?.['title'] }}</h2>
-            <div class="">
-                <span class="text-xs"> {{ post().attributes.date | date: "fullDate"}}</span>
+            <div class="space-x-0.5"><span class="text-xs"> {{ post().attributes.date | date: "short"}}</span>
                 
-            </div>
-        </a>
+                <span class="relative badge badge-xs">{{ post()?.attributes?.lang ?? '?' }}</span></div>
+        </div> 
         <p class="ma">{{ post()?.attributes?.['description'] }}</p>
         <div class="card-actions justify-end">
             <div class="relative mt-8 flex items-center gap-x-4">
@@ -32,8 +28,9 @@
                 <p>
                     {{ post()?.attributes?.['authorInfo'] || 'Angular Developer' }}
                 </p>
-                </div>
-        </div>
+                
+            </div>
+            </div>
     </div>
   </div>
 </div>
