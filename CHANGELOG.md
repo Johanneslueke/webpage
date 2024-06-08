@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/Johanneslueke/webpage/compare/v1.6.0...v1.7.0) (2024-06-08)
+
+
+### Features
+
+* **blog:** add simple search function via regex ([05fc176](https://github.com/Johanneslueke/webpage/commit/05fc17665ed0615d917db698a7f02c4743be9544))
+
 # [1.6.0](https://github.com/Johanneslueke/webpage/compare/v1.5.0...v1.6.0) (2024-06-08)
 
 
