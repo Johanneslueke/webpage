@@ -4,7 +4,7 @@ slug: example
 coverImage: https://images.unsplash.com/photo-1529321044792-949d1f03e61e?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
 description: Es funktioniert  Es funktioniert  Es funktioniert  Es funktioniert  Es funktioniert
 coverAsBackground: true
-
+coverOrientation: 'left'
 author: Johannes
 authorInfo: Software Engineer
 lang: en
