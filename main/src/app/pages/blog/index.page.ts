@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { injectContentFiles } from '@analogjs/content';
 import { NgFor, NgIf } from '@angular/common';
+import { BlogtileComponent } from '@projects/main-layout';
 
 export interface PostAttributes {
   title: string;
@@ -10,11 +11,12 @@ export interface PostAttributes {
   authorInfo?: string;
   description: string;
   coverImage: string;
+  attributes?: Record<string,unknown>
 }
 
 @Component({
   standalone: true,
-  imports: [RouterOutlet, RouterLink, NgFor,NgIf],
+  imports: [RouterOutlet, RouterLink, NgFor,NgIf,BlogtileComponent],
   template: `
     <div class="bg-base-100 py-24 sm:py-32">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
@@ -29,38 +31,10 @@ export interface PostAttributes {
         <div
           class="mt-10 border-t border-gray-200 flex gap-4 pt-10 flex-wrap gap-y-8"
         >
-          <div
-            *ngFor="let post of posts"
-            class="card w-96 bg-base-200 shadow-xl"
-          >
-            <div class="card-body">
-              <a
-                [routerLink]="['/blog', 'posts', post.slug]"
-                class="hover:underline"
-              >
-                <h2 class="card-title">{{ post?.attributes?.title }}</h2></a
-              >
-              <p>{{ post?.attributes?.description }}</p>
-              <div class="card-actions justify-end">
-                <div class="relative mt-8 flex items-center gap-x-4">
-                  <img
-                    src="icons/icon-72x72.png"
-                    alt=""
-                    class="object-cover h-12 w-12 rounded-full"
-                  />
-                  <div class="text-sm leading-6">
-                    <p class="font-semibold">
-                      <span class="absolute inset-0"></span>
-                      {{ post?.attributes?.author || 'Johannes Lüke' }}
-                    </p>
-                    <p>
-                      {{ post?.attributes?.authorInfo || 'Angular Developer' }}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <ng-container  *ngFor="let post of posts" >
+          <projects-blogtile [post]="post"></projects-blogtile>
+        </ng-container>
+         
         </div>
       </div>
     </div>
