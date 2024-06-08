@@ -1,18 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, computed, effect, signal } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { injectContentFiles } from '@analogjs/content';
+import { ContentFile, injectContentFiles } from '@analogjs/content';
 import { NgFor, NgIf } from '@angular/common';
-import { BlogtileComponent } from '@projects/main-layout';
+import { BlogtileComponent, PostAttributes } from '@projects/main-layout';
 
-export interface PostAttributes {
-  title: string;
-  slug: string;
-  author?: string;
-  authorInfo?: string;
-  description: string;
-  coverImage: string;
-  attributes?: Record<string,unknown>
-}
 
 @Component({
   standalone: true,
@@ -27,11 +18,19 @@ export interface PostAttributes {
           <p class="mt-2 text-lg leading-8">
            Thougths and Ideas
           </p>
+          
+        </div>
+        <div class="flex justify-end">
+          <label class="input input-bordered flex items-center gap-2">
+            <input type="text" class="grow" placeholder="Search" #filter (input)="onfilter( filter.value )" />
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4 opacity-70"><path fill-rule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clip-rule="evenodd" /></svg>
+          </label>
         </div>
         <div
           class="mt-10 border-t border-gray-200 flex gap-4 pt-10 flex-wrap gap-y-8"
         >
-        <ng-container  *ngFor="let post of posts" >
+        
+        <ng-container  *ngFor="let post of filtered()" >
           <projects-blogtile [post]="post"></projects-blogtile>
         </ng-container>
          
@@ -53,4 +52,24 @@ export default class BlogComponent {
   readonly posts = injectContentFiles<PostAttributes>((contentFile) =>
     contentFile.filename.includes('/src/content/blog')
   );
+
+  filter = signal('');
+  filtered = computed(() => {
+    const filter = this.filter();
+    const res = this.posts.filter( x => {
+      const condition = RegExp(filter).exec(x.attributes.title) !== null;
+      console.log("RegExp: ",RegExp(filter).exec(x.attributes.title))
+      console.log("Condition: ", condition);
+      return condition;
+    })
+    
+    console.log("Result: ", res)
+    return res;
+  }) 
+
+  onfilter(filter:string){
+    console.log(filter)
+    this.filter.set(filter);
+  }
+
 }

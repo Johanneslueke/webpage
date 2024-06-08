@@ -1,4 +1,4 @@
-<div class="card  bg-base-200 shadow hover:shadow-xl image-full" style="width: 34rem;" [ngClass]="{
+<div class="card w-96 bg-base-200 shadow hover:shadow-xl image-full"  [ngClass]="{
     'image-full': post().attributes?.coverAsBackground ?? false,
     'card-side': post().attributes?.coverOrientation === 'left'
 }" [routerLink]="['/blog', 'posts', post().slug]" >
@@ -6,15 +6,15 @@
         <img [src]="post().attributes?.['coverImage']" alt="Cover" />
     </figure>
   
-    <div class="card-body">
+    <div class="card-body ">
         <div class="card-title justify-between space-x-0.5">
-            <h2 class="truncate">{{ post()?.attributes?.['title'] }}</h2>
+            <h2 class="truncate hover:underline">{{ post()?.attributes?.['title'] }}</h2>
             <div class="space-x-0.5 flex-none">
                 <span class="text-xs"> {{ post().attributes.date | date: "short"}}</span>
-                <span class="relative badge badge-xs">{{ post()?.attributes?.lang ?? '?' }}</span>
+                <span class="indicator-item badge badge-xs">{{ post()?.attributes?.lang ?? '?' }}</span>
             </div>
         </div> 
-        <p class="ma">{{ post()?.attributes?.['description'] }}</p>
+        <p class="hover:underline">{{ post()?.attributes?.['description'] }}</p>
         <div class="card-actions justify-end">
             <div class="relative mt-8 flex items-center gap-x-4">
                 <img
@@ -33,6 +33,6 @@
                 
             </div>
             </div>
-    </div>
+        </div>
   </div>
 </div>
