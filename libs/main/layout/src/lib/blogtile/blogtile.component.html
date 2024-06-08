@@ -1,0 +1,39 @@
+<div class="card w-96 bg-base-200 shadow hover:shadow-xl image-full" [ngClass]="{
+    'image-full': post().attributes?.coverAsBackground ?? false
+}" [routerLink]="['/blog', 'posts', post().slug]" >
+    <figure *ngIf="post().attributes?.coverImage">
+        <img [src]="post().attributes?.['coverImage']" alt="Cover" />
+    </figure>
+  
+    <div class="card-body">
+        <div class="card-title justify-end">
+            <span class="relative badge badge-xs">{{ post()?.attributes?.lang }}</span>
+        </div>
+        <a  class="hover:underline flex flex-col">
+            <h2 class="card-title">{{ post()?.attributes?.['title'] }}</h2>
+            <div class="">
+                <span class="text-xs"> {{ post().attributes.date | date: "fullDate"}}</span>
+                
+            </div>
+        </a>
+        <p class="ma">{{ post()?.attributes?.['description'] }}</p>
+        <div class="card-actions justify-end">
+            <div class="relative mt-8 flex items-center gap-x-4">
+                <img
+                src="icons/icon-72x72.png"
+                alt=""
+                class="object-cover h-12 w-12 rounded-full"
+                />
+                <div class="text-sm leading-6">
+                <p class="font-semibold">
+                    <span class="absolute inset-0"></span>
+                    {{ post()?.attributes?.['author'] || 'Johannes Lüke' }}
+                </p>
+                <p>
+                    {{ post()?.attributes?.['authorInfo'] || 'Angular Developer' }}
+                </p>
+                </div>
+        </div>
+    </div>
+  </div>
+</div>
