@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/Johanneslueke/webpage/compare/v1.4.0...v1.5.0) (2024-06-08)
+
+
+### Features
+
+* expand blog tile ([be6ab09](https://github.com/Johanneslueke/webpage/commit/be6ab09e97b4c25b491d2bf81fc9ff01499626a0))
+
 # [1.4.0](https://github.com/Johanneslueke/webpage/compare/v1.3.2...v1.4.0) (2024-06-08)
 
 
