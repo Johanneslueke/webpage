@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/Johanneslueke/webpage/compare/v1.5.0...v1.6.0) (2024-06-08)
+
+
+### Features
+
+* card title more informative ([81eee1f](https://github.com/Johanneslueke/webpage/commit/81eee1fca5f2bd026dcbbf3dd905218d4122648d))
+
 # [1.5.0](https://github.com/Johanneslueke/webpage/compare/v1.4.0...v1.5.0) (2024-06-08)
 
 
