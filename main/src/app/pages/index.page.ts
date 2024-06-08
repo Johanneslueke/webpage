@@ -22,7 +22,7 @@ export interface PostAttributes {
         <div class="max-w-md flex flex-col items-center">
           <figure>
             <img src="/analog.svg" alt="AnalogJs logo" />
-            <figcaption>Hier findest du Information Üüber meine Person</figcaption>
+            <figcaption>Hier findest du Information über meine Person</figcaption>
           </figure>
           <p class="py-6">
           Herzlich Willkommen auf meiner Webseite

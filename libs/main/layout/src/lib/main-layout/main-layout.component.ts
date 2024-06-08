@@ -12,7 +12,7 @@ import { MainLayoutService, THEMES } from './main-layout.service';
 export class MainLayoutComponent {
   links = [
     { path: '/about', label: 'About' },
-    //{ path: '/contact', label: 'Contact' },
+    { path: '/cv', label: 'CV' },
     {
       path: '/blog',
       label: 'Blog',
