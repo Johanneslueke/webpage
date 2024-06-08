@@ -55,10 +55,10 @@ export default class BlogComponent {
 
   filter = signal('');
   filtered = computed(() => {
-    const filter = this.filter();
+    const filter = this.filter().split(' ');
     const res = this.posts.filter( x => {
-      const condition = RegExp(filter).exec(x.attributes.title) !== null;
-      console.log("RegExp: ",RegExp(filter).exec(x.attributes.title))
+      const condition = RegExp(`${filter.join('|')}`).exec(x.attributes.title || '') !== null;
+      console.log("RegExp: ",RegExp(`${filter.join('|')}`).exec(x.attributes.title || ''))
       console.log("Condition: ", condition);
       return condition;
     })
