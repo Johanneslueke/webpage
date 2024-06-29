@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/Johanneslueke/webpage/compare/v1.7.0...v1.8.0) (2024-06-08)
+
+
+### Features
+
+* add footer ([e34d3b5](https://github.com/Johanneslueke/webpage/commit/e34d3b523466620bbc5b3b0e0c2b3084961255cd))
+
 # [1.7.0](https://github.com/Johanneslueke/webpage/compare/v1.6.0...v1.7.0) (2024-06-08)
 
 
