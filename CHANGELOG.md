@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/Johanneslueke/webpage/compare/v1.8.0...v1.9.0) (2024-06-29)
+
+
+### Features
+
+* support new themes ([6cf475c](https://github.com/Johanneslueke/webpage/commit/6cf475c00e4afad384803d8694c813e8bb584659))
+
 # [1.8.0](https://github.com/Johanneslueke/webpage/compare/v1.7.0...v1.8.0) (2024-06-08)
 
 
