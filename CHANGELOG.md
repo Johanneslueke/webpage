@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/Johanneslueke/webpage/compare/v1.9.0...v1.10.0) (2024-06-29)
+
+
+### Features
+
+* display coverimage on blog post view as well ([f4bbee9](https://github.com/Johanneslueke/webpage/commit/f4bbee904b98b93c5e9b0d32f4921e35bd58614b))
+
 # [1.9.0](https://github.com/Johanneslueke/webpage/compare/v1.8.0...v1.9.0) (2024-06-29)
 
 
