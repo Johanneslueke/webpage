@@ -19,10 +19,11 @@ export interface PostAttributes {
   imports: [RouterOutlet, RouterLink, NgFor,NgIf,MarkdownComponent,MarkdownRouteComponent, AsyncPipe], 
   template: ` 
     <ng-container *ngIf="post$ | async as post">
+       
       <article
-        class="flex flex-col prose prose-slate  dark:prose-invert md:max-w-4xl py-16 w-full px-4"
+        class="flex flex-col items-center prose prose-slate  dark:prose-invert md:max-w-4xl py-16 w-full px-4"
       >
-        <a routerLink="/blog" class="btn items-center mb-8 w-64 flex flex-row"
+        <a routerLink="/blog" class="btn items-center mb-8 w-64 flex flex-row "
           ><svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -39,9 +40,11 @@ export interface PostAttributes {
           </svg>
           <span>Back to Blog Posts</span></a
         >
+        <img [src]="post.attributes.coverImage"/>
         <analog-markdown
           class="markdown"
           [content]="post.content"
+
         ></analog-markdown>
         <a routerLink="/blog" class="btn items-center mb-8 w-64 flex flex-row"
           ><svg
