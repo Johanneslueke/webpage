@@ -1,6 +1,6 @@
 import { Component, DestroyRef, inject } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
-import { SwUpdate, VersionEvent,VersionDetectedEvent , VersionInstallationFailedEvent , VersionReadyEvent , NoNewVersionDetectedEvent } from "@angular/service-worker";
+import { SwUpdate, VersionEvent } from "@angular/service-worker";
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { tap } from "rxjs";
 
@@ -32,11 +32,11 @@ import {MainLayoutComponent, MainLayoutService } from '@projects/main-layout'
   <nav>
     <h6 class="footer-title">Company</h6> 
     <a class="link link-hover">About me</a>
-    <a class="link link-hover">Contact</a> 
+    <a class="link link-hover">Impressum</a> 
   </nav> 
   <nav>
     <h6 class="footer-title">Legal</h6> 
-    <a class="link link-hover">Terms of use</a>
+    <!-- <a class="link link-hover">Terms of use</a> -->
     <a class="link link-hover">Privacy policy</a>
     <a class="link link-hover">Cookie policy</a>
   </nav>
