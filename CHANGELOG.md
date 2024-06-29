@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/Johanneslueke/webpage/compare/v1.10.0...v1.11.0) (2024-06-29)
+
+
+### Features
+
+* make filter case insensitive ([187397c](https://github.com/Johanneslueke/webpage/commit/187397c37b521b244a0836f0eeae8280349e1a7a))
+
 # [1.10.0](https://github.com/Johanneslueke/webpage/compare/v1.9.0...v1.10.0) (2024-06-29)
 
 
