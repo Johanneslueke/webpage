@@ -6,3 +6,10 @@ services:
       volumes:
         - ./:/data
       command: ./compile.sh
+
+  count:
+      build: . # use this to build the local Dockerfile
+      # image: andygrunwald/fom-latex-template # use this to build from the image
+      volumes:
+        - ./:/data
+      command: ./countwords.sh
