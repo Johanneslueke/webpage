@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/Johanneslueke/webpage/compare/v1.11.0...v1.12.0) (2024-10-13)
+
+
+### Features
+
+* add table of projects ([b0f5a68](https://github.com/Johanneslueke/webpage/commit/b0f5a6807c0b6bfad4fe419b34f33f46e0e388a3))
+
 # [1.11.0](https://github.com/Johanneslueke/webpage/compare/v1.10.0...v1.11.0) (2024-06-29)
 
 
